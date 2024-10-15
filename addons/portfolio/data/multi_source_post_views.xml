@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="multi_source_post_action" model="ir.actions.act_window">
+        <field name="name">Multi-Source Posts</field>
+        <field name="res_model">multi_source_post</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="multi_source_post_tree_view" model="ir.ui.view">
+        <field name="name">multi.source.post.tree</field>
+        <field name="model">multi_source_post</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="subtitle"/>
+                <field name="link_medium"/>
+                <field name="link_twitter"/>
+                <field name="link_linkedin"/>
+                <field name="link_devto"/>
+                <field name="link_other"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="multi_source_post_form_view" model="ir.ui.view">
+        <field name="name">multi.source.post.form</field>
+        <field name="model">multi_source_post</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="subtitle"/>
+                    </group>
+                    <group>
+                        <field name="content"/>
+                        <field name="image"/>
+                    </group>
+                    <group string="Links">
+                        <field name="link_medium"/>
+                        <field name="link_twitter"/>
+                        <field name="link_linkedin"/>
+                        <field name="link_devto"/>
+                        <field name="link_other"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

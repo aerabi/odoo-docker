@@ -1,6 +1,7 @@
 services:
   web:
     image: odoo:17.0
+    command: odoo --dev=reload --update=portfolio
     depends_on:
       - db
     ports:

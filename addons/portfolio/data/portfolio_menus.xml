@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_portfolio_root"
+              name="Portfolio"
+              parent="website.menu_website_configuration"
+              sequence="1"/>
+
+    <menuitem id="menu_multi_source_post"
+              name="multi.source.post"
+              parent="menu_portfolio_root"
+              action="multi_source_post_action"
+              sequence="10"/>
+</odoo>

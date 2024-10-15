@@ -9,4 +9,9 @@
     'depends': ['base'],
     'installable': True,
     'application': True,
+    'data': [
+        'data/ir.model.access.csv',
+        'data/multi_source_post_views.xml',
+        'data/portfolio_menus.xml',
+    ]
 }
