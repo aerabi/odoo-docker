@@ -10,6 +10,12 @@ First, clone the repository:
 git clone https://github.com/aerabi/odoo-docker.git
 ```
 
+Update the `db_password.txt` file with the desired password for the PostgreSQL database, e.g.:
+
+```bash
+echo "mysecretpassword" > db_password.txt
+```
+
 Then, run the following command to start Odoo:
 
 ```bash
