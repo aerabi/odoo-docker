@@ -13,5 +13,7 @@
         'data/ir.model.access.csv',
         'data/multi_source_post_views.xml',
         'data/portfolio_menus.xml',
+        'views/multi_source_post_template.xml',
+        'views/multi_source_post_detail_template.xml',
     ]
 }

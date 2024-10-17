@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="multi_source_post_template" name="Multi-Source Posts">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Multi-Source Posts</h1>
+                <div class="row">
+                    <t t-foreach="posts" t-as="post">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img t-if="post.image" t-att-src="'data:image/png;base64,%s' % post.image" class="card-img-top"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <t t-esc="post.title"/>
+                                    </h5>
+                                    <p class="card-text">
+                                        <t t-esc="post.subtitle"/>
+                                    </p>
+                                    <a t-att-href="'/issues/%s' % post.id" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

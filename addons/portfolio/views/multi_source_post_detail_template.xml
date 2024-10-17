@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="multi_source_post_detail_template" name="Post Detail">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1><t t-esc="post.title"/></h1>
+                <p><t t-esc="post.subtitle"/></p>
+                <div class="content">
+                    <t t-raw="post.content"/>
+                </div>
+                <div>
+                    <h2>Other versions:</h2>
+                    <ul>
+                        <li t-if="post.link_medium"><a t-att-href="post.link_medium" target="_blank">Medium Post</a></li>
+                        <li t-if="post.link_twitter"><a t-att-href="post.link_twitter" target="_blank">Twitter Post</a></li>
+                        <li t-if="post.link_linkedin"><a t-att-href="post.link_linkedin" target="_blank">LinkedIn Newsletter</a></li>
+                        <li t-if="post.link_devto"><a t-att-href="post.link_devto" target="_blank">Dev.to Post</a></li>
+                        <li t-if="post.link_other"><a t-att-href="post.link_other" target="_blank">Other</a></li>
+                    </ul>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
