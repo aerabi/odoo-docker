@@ -2,21 +2,40 @@
 <odoo>
     <template id="multi_source_post_template" name="Multi-Source Posts">
         <t t-call="website.layout">
-            <div class="container">
-                <h1>Multi-Source Posts</h1>
+            <div class="container mt-4">
+                <h1 class="text-center">Multi-source Posts</h1>
                 <div class="row">
                     <t t-foreach="posts" t-as="post">
                         <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img t-if="post.image" t-att-src="'data:image/png;base64,%s' % post.image" class="card-img-top"/>
+                            <div class="card h-100">
+                                <img t-if="post.image" class="card-img-top" t-att-src="'/web/image/multi_source_post/%d/image' % post.id"/>
                                 <div class="card-body">
-                                    <h5 class="card-title">
-                                        <t t-esc="post.title"/>
-                                    </h5>
-                                    <p class="card-text">
-                                        <t t-esc="post.subtitle"/>
-                                    </p>
-                                    <a t-att-href="'/issues/%s' % post.id" class="btn btn-primary">Read More</a>
+                                    <h5 class="card-title" t-esc="post.title"/>
+                                    <p class="card-text" t-esc="post.subtitle"/>
+                                    <a t-att-href="'/issues/%d' % post.id" class="btn btn-primary">Read More</a>
+                                </div>
+                                <div class="card-footer text-end">
+                                    <!-- External Link Buttons -->
+                                    <a t-if="post.link_medium" t-att-href="post.link_medium"
+                                       class="btn btn-outline-secondary" target="_blank">
+                                        <i class="fa fa-medium"></i>
+                                    </a>
+                                    <a t-if="post.link_twitter" t-att-href="post.link_twitter"
+                                       class="btn btn-outline-info" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a t-if="post.link_linkedin" t-att-href="post.link_linkedin"
+                                       class="btn btn-outline-primary" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a t-if="post.link_devto" t-att-href="post.link_devto" class="btn btn-outline-dark"
+                                       target="_blank">
+                                        <i class="fa fa-laptop"></i>
+                                    </a>
+                                    <a t-if="post.link_other" t-att-href="post.link_other"
+                                       class="btn btn-outline-secondary" target="_blank">
+                                        <i class="fa fa-external-link"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

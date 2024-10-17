@@ -7,7 +7,7 @@ class MultiSourcePost(models.Model):
     title = fields.Char('Title', required=True)
     subtitle = fields.Char('Subtitle')
     content = fields.Html('Content')
-    image = fields.Binary('Image')
+    image = fields.Binary('Image', attachment=True)
 
     # Add links to the alternative versions of the post on other websites
     link_medium = fields.Char('Link_Medium')
