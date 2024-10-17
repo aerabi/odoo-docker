@@ -1,6 +1,7 @@
 from odoo import http
 from odoo.http import request
 
+
 class MultiSourcePostController(http.Controller):
 
     @http.route('/issues', auth='public', website=True)
