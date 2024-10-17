@@ -21,3 +21,23 @@ Then, run the following command to start Odoo:
 ```bash
 docker compose up
 ```
+
+## Development
+
+This project uses Pipenv for dependency management. To install the dependencies, run:
+
+```bash
+pipenv install --dev
+```
+
+To format the code, run:
+
+```bash
+yapf -i -r addons
+```
+
+To check if the code is formatted correctly, run:
+
+```bash
+yapf -d -r addons
+```

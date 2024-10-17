@@ -1,5 +1,6 @@
 from odoo import models, fields
 
+
 class MultiSourcePost(models.Model):
     _name = 'multi_source_post'
     _description = 'Multi-source Post'
