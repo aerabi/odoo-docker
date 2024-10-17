@@ -8,10 +8,6 @@ on:
     branches:
       - master
 
-env:
-  WORKON_HOME: /root
-  PIPENV_PIPFILE: /Pipfile
-
 jobs:
   check-format:
     strategy:
@@ -21,27 +17,30 @@ jobs:
         pipenv-version: [ "v2024.1.0" ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code 👌
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v4
+      - name: Install Python ${{ matrix.python-version }} 🐍
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Pipenv
+      - name: Install Pipenv ${{ matrix.pipenv-version }} 📦
         run: |
           python -m pip install --upgrade pipenv wheel
 
-      - id: cache-pipenv
+      - name: Cache Pipenv 🚀
+        id: cache-pipenv
         uses: actions/cache@v1
         with:
           path: ~/.local/share/virtualenvs
           key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
 
-      - name: Install dependencies
+      - name: Install dependencies 📦
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
 
-      - name: Check code formatting
+      - name: Check code formatting 🎨
         run: |
           pipenv run yapf --diff --recursive addons
