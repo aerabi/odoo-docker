@@ -4,9 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-yapf = "*"
 
 [dev-packages]
+yapf = "*"
 
 [requires]
 python_version = "3.13"
+
+[scripts]
+format = "yapf -i -r addons"
+check-format = "yapf -d -r addons"
